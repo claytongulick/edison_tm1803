@@ -15,10 +15,11 @@
 #include <sched.h>
 
 #include "tm1803.h"
+#include "animation.h"
 
 int main()
 {
-	printf("Initializing...");
+	printf("Initializing...\n");
 	if(tm1803_init() > 0) {
 		return printf("Failed to initialize");
 	}
@@ -27,23 +28,10 @@ int main()
 	const struct sched_param priority={1};
 	sched_setscheduler(0,SCHED_FIFO,&priority);
 
-	printf("writing colors\n");
-	write_reset();
+	printf("Starting animation\n");
 
-	while(1) {
-		write_color(255,0,0);
-		write_color(0,255,0);
-		write_color(0,0,255);
-		write_color(255,0,0);
-		write_color(0,255,0);
-		write_color(0,0,255);
-		write_color(255,0,0);
-		write_color(0,255,0);
-		write_color(0,0,255);
+	animation_add(animation_chase);
+	animation_loop();
 
-		write_reset();
-		//sleep(1);
-	}
-	printf("colors written\n");
 	return 0;
 }
