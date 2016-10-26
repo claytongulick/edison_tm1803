@@ -1,8 +1,10 @@
+#include <stdlib.h>
+
 #include "animation.h"
 #include "tm1803.h"
 #include "time.h"
 
-#define CLOCKS_PER_MS CLOCKS_PER_SEC / 1000
+#define CLOCKS_PER_MS (CLOCKS_PER_SEC / 1000)
 #define FRAMES_PER_SECOND 30
 #define MS_PER_FRAME 1000/30
 #define MAX_ANIMATIONS 10
@@ -30,15 +32,22 @@ void animation_loop() {
 	clock_t current_clock;
 	clock_t clock_diff;
 	double elapsed_time = 0;
+	time_t t;
+	//initialize random number generator
+	srand((unsigned)time(&t));
+
+	render(); //clear to black
 
 	while(1) {
 		start_clock = clock();
 
 		animate(elapsed_time);
 
+		render();
+
 		while(1) {
 			current_clock = clock();
-			clock_diff = (double)start_clock - current_clock;
+			clock_diff = (double)current_clock - start_clock;
 			elapsed_time = (double)clock_diff / CLOCKS_PER_MS;
 			if(elapsed_time > MS_PER_FRAME)
 				break;
@@ -50,7 +59,7 @@ void animation_loop() {
 /**
  * Kick off animation logic and events
  */
-void animate(elapsed_time) {
+void animate(double elapsed_time) {
 	static double total_time = 0;
 	int i=0;
 
@@ -81,24 +90,65 @@ int animation_add(animation_callback callback) {
  * Simple chase animation of a random color
  */
 void animation_chase(double elapsed_time) {
+	const int color_change_time = 3000;
 	static double start_time = 0;
 	static int color_index = 0;
-	static float speed = 1000;
+	static float speed = 50;
 	static int direction = 1;
-	static char old_color_r;
-	static char old_color_g;
-	static char old_color_b;
-	static char color_r=255;
-	static char color_g=255;
-	static char color_b=255;
+	static unsigned char old_color_r;
+	static unsigned char old_color_g;
+	static unsigned char old_color_b;
+	static unsigned char color_r=255;
+	static unsigned char color_g=255;
+	static unsigned char color_b=255;
+	static float r_delta=0;
+	static float g_delta=0;
+	static float b_delta=0;
+	static int fade_time=0;
+	static unsigned char arrived=1;
+
+	unsigned char goal_r;
+	unsigned char goal_g;
+	unsigned char goal_b;
+
 
 	//initialize
 	if(start_time == 0) {
 		old_color_r = (char)colors[0][0];
 		old_color_g = (char)colors[0][1];
 		old_color_b = (char)colors[0][2];
+
+		colors[0][0] = color_r;
+		colors[0][1] = color_g;
+		colors[0][2] = color_b;
+		start_time = 1;
 		return;
 	}
+
+	//let's randomly fade along a line using lerp to a point in 3d space
+	if(arrived) {
+		arrived = 0;
+		fade_time=elapsed_time;
+		goal_r = rand() % 256;
+		goal_g = rand() % 256;
+		goal_b = rand() % 256;
+
+		r_delta = (float)((int)goal_r - (int)color_r) / color_change_time;
+		g_delta = (float)((int)goal_g - (int)color_g) / color_change_time;
+		b_delta = (float)((int)goal_b - (int)color_b) / color_change_time;
+	}
+
+	color_r += r_delta * MS_PER_FRAME;
+	color_g += g_delta * MS_PER_FRAME;
+	color_b += b_delta * MS_PER_FRAME;
+
+	if((elapsed_time-fade_time) >= color_change_time) arrived = 1;
+
+	//support fades outside of motion with this
+	colors[color_index][0] = color_r;
+	colors[color_index][1] = color_g;
+	colors[color_index][2] = color_b;
+
 
 	if((elapsed_time - start_time) > speed) {
 

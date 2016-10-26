@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.cdt.launch.remoteApplicationLaunchType">
-<stringAttribute key="com.intel.core.launch.launched_target" value="edison"/>
+<stringAttribute key="com.intel.core.launch.launched_target" value="clay_edison"/>
 <stringAttribute key="com.intel.iotdevkit.launch.config.default" value="tm1803"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="i586-poky-linux-gdb"/>
-<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="edison"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="192.168.2.191"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.NON_STOP" value="false"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.PORT" value="2345"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.REMOTE_TCP" value="true"/>
