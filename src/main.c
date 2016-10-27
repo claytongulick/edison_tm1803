@@ -30,6 +30,7 @@ int main()
 
 	printf("Starting animation\n");
 
+	animation_add(animation_pulse);
 	animation_add(animation_chase);
 	animation_loop();
 
