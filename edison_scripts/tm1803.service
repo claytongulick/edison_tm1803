@@ -1,0 +1,12 @@
+[Unit]
+Description=TM1803 Driver
+After=bluetooth.target
+Before=systemd-user-sessions.service
+[Service]
+Type=simple
+RemainAfterExit=true
+ExecStart=/home/root/tm1803.sh
+Environment="HOME=/home/root"
+WorkingDirectory=/home/root/
+[Install]
+WantedBy=multi-user.target

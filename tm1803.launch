@@ -3,7 +3,7 @@
 <stringAttribute key="com.intel.core.launch.launched_target" value="clay_edison_dms"/>
 <stringAttribute key="com.intel.iotdevkit.launch.config.default" value="tm1803"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="i586-poky-linux-gdb"/>
-<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="clay_edison_dms"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="192.168.207.163"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.NON_STOP" value="false"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.PORT" value="2345"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.REMOTE_TCP" value="true"/>
@@ -19,9 +19,9 @@
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
 <booleanAttribute key="org.eclipse.cdt.launch.remote.RemoteCDSFDebuggerTab.DEFAULTS_SET" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.launch.use_terminal" value="true"/>
-<stringAttribute key="org.eclipse.debug.core.ATTR_PRERUN_CMDS" value="chmod 755 /tmp/tm1803"/>
+<stringAttribute key="org.eclipse.debug.core.ATTR_PRERUN_CMDS" value="chmod 755 /home/root/tm1803/tm1803"/>
 <booleanAttribute key="org.eclipse.debug.core.ATTR_SKIP_DOWNLOAD_TO_TARGET" value="false"/>
-<stringAttribute key="org.eclipse.debug.core.ATTR_TARGET_PATH" value="/tmp/tm1803"/>
+<stringAttribute key="org.eclipse.debug.core.ATTR_TARGET_PATH" value="/home/root/tm1803/tm1803"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/tm1803"/>
 </listAttribute>

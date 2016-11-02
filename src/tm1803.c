@@ -12,7 +12,8 @@ mraa_gpio_context data_pin = NULL;
  */
 int tm1803_init() {
 	//change this to whatever pin you'd like to use for data
-	data_pin = mraa_gpio_init(0); //this is J17-1 on the intel breakout board
+	//data_pin = mraa_gpio_init(6); //this is J17-7 on the intel breakout board
+	data_pin = mraa_gpio_init(0); //this is J17-7 on the intel breakout board
 
 	// set the pin as output
 	if (mraa_gpio_dir(data_pin, MRAA_GPIO_OUT) != MRAA_SUCCESS) {

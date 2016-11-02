@@ -95,6 +95,9 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="tm1803.com.intel.issiot.target.gnu.cross.exe.1165893511" name="Executable" projectType="com.intel.issiot.target.gnu.cross.exe"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="com.intel.issiot.cdt.config.cross.exe.release.1746272756;com.intel.issiot.cdt.config.cross.exe.release.1746272756.;com.intel.issiot.cdt.tool.gnu.cross.c.compiler.2028392303;cdt.managedbuild.tool.gnu.c.compiler.input.1912817967">
@@ -103,8 +106,8 @@
 		<scannerConfigBuildInfo instanceId="com.intel.issiot.cdt.config.gnu.cross.exe.debug.244487924;com.intel.issiot.cdt.config.gnu.cross.exe.debug.244487924.;com.intel.issiot.cdt.tool.gnu.cross.c.compiler.2031723976;cdt.managedbuild.tool.gnu.c.compiler.input.1288576176">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.intel.issiot.cdt.config.gnu.cross.exe.debug.244487924.531179374;com.intel.issiot.cdt.config.gnu.cross.exe.debug.244487924.531179374.;com.intel.issiot.cdt.tool.gnu.cross.c.compiler.263840664;cdt.managedbuild.tool.gnu.c.compiler.input.1378463314">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
-	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
